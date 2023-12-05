@@ -14,12 +14,10 @@ const port = 3000;
 app.use(bodyParser.json());
 
 mongoose.connect('mongodb://mongodb://localhost:27017/branch-messaging-app', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    bufferCommands: false, // Set this to false or increase the timeout value
-    connectTimeoutMS: 30000, // Increase the timeout value (in milliseconds)
-    // ...
-  })
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
 const messageSchema = new mongoose.Schema({
   sender: String,
   content: String,
