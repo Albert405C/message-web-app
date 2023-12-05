@@ -5,13 +5,15 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const http = require('http');
 const socketIo = require('socket.io');
+const fs = require('fs');
+const csv = require('fast-csv');
 
 const app = express();
 const port = 3000;
 
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost/branch-messaging-app', {
+mongoose.connect('mongodb://mongodb://localhost:27017/branch-messaging-app', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -30,9 +32,18 @@ const io = socketIo(server);
 
 io.on('connection', (socket) => {
   console.log('Client connected');
-
-  // You can add more socket event handlers here
 });
+
+// Read messages from CSV file and insert into the database
+fs.createReadStream('"C:\\Users\\ADMIN\\OneDrive\\Desktop\\messages.csv"')
+  .pipe(csv.parse({ headers: true }))
+  .on('data', async (row) => {
+    const newMessage = new Message({ sender: row.sender, content: row.content });
+    await newMessage.save();
+  })
+  .on('end', () => {
+    console.log('CSV file successfully processed');
+  });
 
 app.get('/messages', async (req, res) => {
   const messages = await Message.find();
@@ -44,7 +55,6 @@ app.post('/messages', async (req, res) => {
   const newMessage = new Message({ sender, content });
   await newMessage.save();
 
-  // Emit a 'newMessage' event to all connected clients
   io.emit('newMessage', newMessage);
 
   res.status(201).json(newMessage);
@@ -53,3 +63,4 @@ app.post('/messages', async (req, res) => {
 server.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
+
