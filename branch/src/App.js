@@ -5,7 +5,7 @@ import axios from 'axios';
 import io from 'socket.io-client';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
-const socket = io('http://localhost:3000');
+const socket = io('http://localhost:3001');
 
 function App() {
   const [messages, setMessages] = useState([]);
