@@ -40,7 +40,7 @@ io.on('connection', (socket) => {
 
 // Simulate the presence of 50+ messages in the database
 const seedMessages = async () => {
-  const messagesData = [
+  const newMessages = [
 
 
         { userId: 208, timestamp: '2/1/2017 19:29', body: "So it means if u pay ua loan before the due date is a disadvantage the last time I paid earlier it was still a problem" },
