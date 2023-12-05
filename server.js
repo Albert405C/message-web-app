@@ -5,18 +5,15 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const http = require('http');
 const socketIo = require('socket.io');
-const fs = require('fs');
-const csv = require('fast-csv');
 
 const app = express();
 const port = 3000;
 
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://mongodb://localhost:27017/branch-messaging-app', {
+mongoose.connect('mongodb://localhost/branch-messaging-app', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  
 });
 
 const messageSchema = new mongoose.Schema({
@@ -34,18 +31,19 @@ const io = socketIo(server);
 io.on('connection', (socket) => {
   console.log('Client connected');
 });
+
+// Simulate the presence of 50+ messages in the database
 const seedMessages = async () => {
-    for (let i = 1; i <= 50; i++) {
-      const newMessage = new Message({
-        sender: `Customer ${i}`,
-        content: `This is message number ${i}`,
-      });
-      await newMessage.save();
-    }
-  };
-  
-  seedMessages();
-  
+  for (let i = 1; i <= 50; i++) {
+    const newMessage = new Message({
+      sender: `Customer ${i}`,
+      content: `This is message number ${i}`,
+    });
+    await newMessage.save();
+  }
+};
+
+seedMessages();
 
 app.get('/messages', async (req, res) => {
   const messages = await Message.find();
@@ -65,4 +63,3 @@ app.post('/messages', async (req, res) => {
 server.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
-

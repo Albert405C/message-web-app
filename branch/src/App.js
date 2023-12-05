@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:3001');
+const socket = io('http://localhost:3000');
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -84,3 +84,4 @@ function App() {
 }
 
 export default App;
+
