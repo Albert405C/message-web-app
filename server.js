@@ -39,7 +39,7 @@ io.on('connection', (socket) => {
 });
 
 // Simulate the presence of 50+ messages in the database
-const Message = require('./models/Message'); // Update the path accordingly
+const Message = require('C:\Users\ADMIN\OneDrive\Desktop\Final CoMMits\message-web-app\messageModel.js'); // Update the path accordingly
 
 mongoose.connect('mongodb://localhost:27017/finalcommit', { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
