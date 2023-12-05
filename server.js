@@ -27,7 +27,7 @@ const messageSchema = new mongoose.Schema({
     lockedBy: { type: String, default: null }, // Store the ID or username of the agent who has locked the message
   });
   
-  const Message = mongoose.model('Message', messageSchema);
+  
   
 
 
