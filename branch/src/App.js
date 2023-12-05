@@ -91,28 +91,31 @@ const handleSubmit = (e) => {
         <div className="col-md-4">
           {/* Form for sending new messages */}
           <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label className="form-label">Sender:</label>
-              <input
-                type="text"
-                className="form-control"
-                name="sender"
-                value={newMessage.sender}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Content:</label>
-              <input
-                type="text"
-                className="form-control"
-                name="content"
-                value={newMessage.content}
-                onChange={handleInputChange}
-              />
-            </div>
-            <button type="submit" className="btn btn-primary">Send Message</button>
-          </form>
+  <div className="mb-3">
+    <label htmlFor="sender" className="form-label">Sender:</label>
+    <input
+      type="text"
+      id="sender"
+      className="form-control"
+      name="sender"
+      value={newMessage.sender}
+      onChange={handleInputChange}
+    />
+  </div>
+  <div className="mb-3">
+    <label htmlFor="content" className="form-label">Content:</label>
+    <input
+      type="text"
+      id="content"
+      className="form-control"
+      name="content"
+      value={newMessage.content}
+      onChange={handleInputChange}
+    />
+  </div>
+  <button type="submit" className="btn btn-primary">Send Message</button>
+</form>
+
         </div>
       </div>
     </div>
