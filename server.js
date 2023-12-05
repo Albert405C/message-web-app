@@ -18,7 +18,6 @@ mongoose.connect('mongodb://mongodb://localhost:27017/branch-messaging-app', {
   useUnifiedTopology: true,
   bufferCommands: false,
   connectTimeoutMS: 30000,
-  poolSize: 10, // Increase the poolSize
   
 });
 
