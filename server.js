@@ -40,7 +40,8 @@ io.on('connection', (socket) => {
 
 // Simulate the presence of 50+ messages in the database
 const seedMessages = async () => {
-    const messagesData = [
+  const messagesData = [
+
 
         { userId: 208, timestamp: '2/1/2017 19:29', body: "So it means if u pay ua loan before the due date is a disadvantage the last time I paid earlier it was still a problem" },
         { userId: 208, timestamp: '2/1/2017 19:21', body: "The dates of payment are still indicated n no money sent" },
@@ -154,18 +155,18 @@ const seedMessages = async () => {
   
     for (const data of messagesData) {
       const { userId, timestamp, body } = data;
-  
+
       const newMessage = new Message({
-        sender: `Customer ${userId}`,
-        content: body,
-        timestamp: new Date(timestamp),
+          sender: `Customer ${userId}`,
+          content: body,
+          timestamp: new Date(timestamp),
       });
-  
+
       await newMessage.save();
-    }
-  };
-  
-  seedMessages();
+  }
+};
+
+seedMessages();
   
 
 app.get('/messages', async (req, res) => {
