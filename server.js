@@ -35,7 +35,7 @@ io.on('connection', (socket) => {
 });
 
 // Read messages from CSV file and insert into the database
-fs.createReadStream('"C:\\Users\\ADMIN\\OneDrive\\Desktop\\messages.csv"')
+fs.createReadStream('C:\\Users\\ADMIN\\OneDrive\\Desktop\\messages.csv')
   .pipe(csv.parse({ headers: true }))
   .on('data', async (row) => {
     const newMessage = new Message({ sender: row.sender, content: row.content });
