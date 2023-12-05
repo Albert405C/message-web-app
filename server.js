@@ -110,7 +110,46 @@ const seedMessages = async () => {
         { userId: 3897, timestamp: '2/3/2017 7:56', body: "I've settled many of your loans before please don't spoil my credit report" },
         { userId: 3897, timestamp: '2/3/2017 7:46', body: "Hi branch kindly let me sort out the issue in a few days... I remain committed to settling my loans on time despite a few constraints" },
     
-      
+
+{ userId: 3900, timestamp: '2/2/2017 8:34', body: 'Thanks branch had missed this' },
+{ userId: 4178, timestamp: '2/1/2017 4:10', body: 'Am sorry nlichelewa kulipa loan guys siyo kawaida yangu kuchelewesha lakini ni accident nlioata na mtoto wangu akachomeka na maji moto,naomba msamaha mwanzo mmeniinua sana kibiashara na ni ombi langu mtaendelea kunikopesha loan na tena ningeomba tafadhali don\'t lower loan limit please.will pay my loan on Friday, good day' },
+{ userId: 4373, timestamp: '2/3/2017 7:23', body: 'When am I qualified to get another loan' },
+{ userId: 4442, timestamp: '2/2/2017 15:31', body: 'Hi! Am sure acc details are correct. Have not received the loan yet...' },
+{ userId: 4442, timestamp: '2/2/2017 14:22', body: 'I require a feedback plz' },
+{ userId: 4442, timestamp: '2/2/2017 13:07', body: 'Did sent the C Certificate' },
+{ userId: 4481, timestamp: '2/3/2017 6:41', body: 'R u guys going to punish me for ever?' },
+{ userId: 4522, timestamp: '2/1/2017 11:41', body: 'Meanings' },
+{ userId: 4708, timestamp: '2/2/2017 5:47', body: 'I cleared last year for how long' },
+{ userId: 5000, timestamp: '2/1/2017 20:56', body: 'Hi Branch, am among your best beneficiaries of the Tala platform. However, I have hit a \'dead-end\' situation on my payment which is late for almost 5weeks after I took the loan. It has been caused by a temporal stagnation from my employment that was abruptly halted due to funding issues. Need to request for a little time extra as I commit myself to clear this loan I have. Kindly respond we agree on an amicable plan if payment. My Tel: 0723 496 592. Waiting for your feedback. Regards, Kenedy Sifuma' },
+
+
+
+{ userId: 5297, timestamp: '2/3/2017 15:38', body: "it can't be 1264 had paid 400 earlier pls update your systems and give the right balance" },
+{ userId: 5480, timestamp: '2/3/2017 12:28', body: 'Hi branch, Yes I have a problem which I thought it could have been through by now but it\'s not through. I have not been paid yet but kindly allow me to pay by next week please.' },
+{ userId: 5696, timestamp: '2/3/2017 13:00', body: 'I am sending the full amount today just got busy' },
+{ userId: 5724, timestamp: '2/3/2017 6:53', body: 'Some lady from brunch calls me n starts to abuse me just because i said av paid a total of 1000 which she claims from her side av paid on 600 .that my loan is 18394 n yet it shows hear clearly its 17994 .my question is ,is that how people who have defaulted are addressed coz surely av started paying ? N av introduced people who are paying so why look down on orhers' },
+{ userId: 6054, timestamp: '2/3/2017 15:46', body: 'Hi, l have paid my loan on time but, my loan has been rejected. Why has it been rejected?' },
+{ userId: 6326, timestamp: '2/3/2017 13:32', body: 'Can\'t login' },
+{ userId: 6515, timestamp: '2/2/2017 2:12', body: 'The weekly text rem are a nuisance' },
+{ userId: 6515, timestamp: '2/2/2017 2:11', body: 'The weekly text rimindance' },
+{ userId: 6515, timestamp: '2/2/2017 2:09', body: 'Hi..please I can pay my loan in a month once..adjust your payment schedule and give options whether to pay weekly or monthly..' },
+{ userId: 6884, timestamp: '2/1/2017 19:40', body: 'OK I have paid all of it' },
+{ userId: 7140, timestamp: '2/2/2017 13:06', body: 'Why cant i have a loan now yet i have cleared my previous loan' },
+{ userId: 7457, timestamp: '2/1/2017 22:26', body: 'How do I get a loan' },
+{ userId: 7725, timestamp: '2/2/2017 10:25', body: 'Dear Branch, sorry for late payment of my loan. This is due to unavoidable circumstances but I strive to clear the loan before Wednesday 8th feb next week' },
+{ userId: 7812, timestamp: '2/1/2017 10:19', body: 'Hi Branch, by 7th i promise to make some payment to reduce my loan.' },
+
+// ... existing messagesData
+
+{ userId: 7837, timestamp: '2/1/2017 8:56', body: 'So in short because i don\'t have the SMS that the e reason.' },
+{ userId: 7837, timestamp: '2/1/2017 6:07', body: 'Why was my loan request rejected and i have been paying on time' },
+{ userId: 7944, timestamp: '2/1/2017 7:37', body: 'Dear Branch, Am experiencing difficult in payments but will deposit tomorrow evening. Thank you' },
+{ userId: 8014, timestamp: '2/2/2017 15:36', body: 'Hi, what\'s the 7 more days penalty for? Be frank and specify. I paid the previous loan on time.' },
+{ userId: 8101, timestamp: '2/1/2017 9:43', body: 'I have been trying this app for a long period... When i apply.. Am told try after 7 days...iy has become a song...is this app real or am wasting my time and bundles for nothing?' },
+{ userId: 8125, timestamp: '2/1/2017 2:20', body: 'Will pay before 15th' },
+{ userId: 8392, timestamp: '2/2/2017 13:51', body: 'I\'ve been with you For long and I made a mistake but I won\'t repeat it again I was having a sickness....' },
+{ userId: 8647, timestamp: '2/1/2017 15:53', body: 'Sorry, I meant December 2016' },
+{ userId: 8647, timestamp: '2/1/2017 15:52', body: 'Hi Branch...now my Application was rejected recently on 1st Feb 2017. I had borrowed Sh.25,000 in December 2015 of which I was slightly late in paying but I paid the whole loan today only to be disappointed when I apply for another. It says I reapply again in 7 days which is too long for me at the moment because I desperately need the cash. How can you assist?' },      
     ];
   
     for (const data of messagesData) {
