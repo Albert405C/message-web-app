@@ -153,23 +153,17 @@ const seedMessages = async () => {
 { userId: 8647, timestamp: '2/1/2017 15:52', body: 'Hi Branch...now my Application was rejected recently on 1st Feb 2017. I had borrowed Sh.25,000 in December 2015 of which I was slightly late in paying but I paid the whole loan today only to be disappointed when I apply for another. It says I reapply again in 7 days which is too long for me at the moment because I desperately need the cash. How can you assist?' },      
     ];
   
-    const selectedMessages = messagesData.slice(0, 101); // Select the first 101 messages
-
-    for (const data of selectedMessages) {
-        const { userId, timestamp, body } = data;
-
-        const newMessage = new Message({
-            sender: `Customer ${userId}`,
-            content: body,
-            timestamp: new Date(timestamp),
-        });
-
-        await newMessage.save();
+    for (const messageData of newMessages) {
+      const newMessage = new Message({
+        sender: `User ${messageData.userId}`,
+        timestamp: messageData.timestamp,
+        content: messageData.body,
+      });
+      await newMessage.save();
     }
-};
-
-seedMessages();
+  };
   
+  seedMessages();
 
 app.get('/messages', async (req, res) => {
     // Set CORS headers in the response
