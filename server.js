@@ -34,17 +34,18 @@ const io = socketIo(server);
 io.on('connection', (socket) => {
   console.log('Client connected');
 });
-
-// Read messages from CSV file and insert into the database
-fs.createReadStream('C:\\Users\\ADMIN\\OneDrive\\Desktop\\csv-file.csv')
-  .pipe(csv.parse({ headers: true }))
-  .on('data', async (row) => {
-    const newMessage = new Message({ sender: row.sender, content: row.content });
-    await newMessage.save();
-  })
-  .on('end', () => {
-    console.log('CSV file successfully processed');
-  });
+const seedMessages = async () => {
+    for (let i = 1; i <= 50; i++) {
+      const newMessage = new Message({
+        sender: `Customer ${i}`,
+        content: `This is message number ${i}`,
+      });
+      await newMessage.save();
+    }
+  };
+  
+  seedMessages();
+  
 
 app.get('/messages', async (req, res) => {
   const messages = await Message.find();
