@@ -16,8 +16,6 @@ app.use(bodyParser.json());
 mongoose.connect('mongodb://mongodb://localhost:27017/branch-messaging-app', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  bufferCommands: false,
-  connectTimeoutMS: 30000,
   
 });
 
