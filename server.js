@@ -1,6 +1,10 @@
+// server.js
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const http = require('http');
+const socketIo = require('socket.io');
 
 const app = express();
 const port = 3000;
@@ -21,6 +25,15 @@ const messageSchema = new mongoose.Schema({
 
 const Message = mongoose.model('Message', messageSchema);
 
+const server = http.createServer(app);
+const io = socketIo(server);
+
+io.on('connection', (socket) => {
+  console.log('Client connected');
+
+  // You can add more socket event handlers here
+});
+
 app.get('/messages', async (req, res) => {
   const messages = await Message.find();
   res.json(messages);
@@ -30,9 +43,13 @@ app.post('/messages', async (req, res) => {
   const { sender, content } = req.body;
   const newMessage = new Message({ sender, content });
   await newMessage.save();
+
+  // Emit a 'newMessage' event to all connected clients
+  io.emit('newMessage', newMessage);
+
   res.status(201).json(newMessage);
 });
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
