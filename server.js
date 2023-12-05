@@ -39,26 +39,22 @@ io.on('connection', (socket) => {
 });
 
 // Simulate the presence of 50+ messages in the database
-const seedMessages = async () => {
-  const newMessages = [
-    // ... (your existing messages)
+// Assuming you have a Message model and it has a schema with fields: id, date, time, and content
 
-    { userId: 7837, timestamp: '2/1/2017 8:56', body: 'So in short because i don\'t have the SMS that the e reason.' },
-    { userId: 7837, timestamp: '2/1/2017 6:07', body: 'Why was my loan request rejected and i have been paying on time' },
-    { userId: 7944, timestamp: '2/1/2017 7:37', body: 'Dear Branch, Am experiencing difficult in payments but will deposit tomorrow evening. Thank you' },
-    { userId: 8014, timestamp: '2/2/2017 15:36', body: 'Hi, what\'s the 7 more days penalty for? Be frank and specify. I paid the previous loan on time.' },
-    { userId: 8101, timestamp: '2/1/2017 9:43', body: 'I have been trying this app for a long period... When i apply.. Am told try after 7 days...iy has become a song...is this app real or am wasting my time and bundles for nothing?' },
-    { userId: 8125, timestamp: '2/1/2017 2:20', body: 'Will pay before 15th' },
-    { userId: 8392, timestamp: '2/2/2017 13:51', body: 'I\'ve been with you For long and I made a mistake but I won\'t repeat it again I was having a sickness....' },
-    { userId: 8647, timestamp: '2/1/2017 15:53', body: 'Sorry, I meant December 2016' },
-    { userId: 8647, timestamp: '2/1/2017 15:52', body: 'Hi Branch...now my Application was rejected recently on 1st Feb 2017. I had borrowed Sh.25,000 in December 2015 of which I was slightly late in paying but I paid the whole loan today only to be disappointed when I apply for another. It says I reapply again in 7 days which is too long for me at the moment because I desperately need the cash. How can you assist?' },
+const seedMessages = async () => {
+  const messages = [
+    "2126 2/1/2017 16:06 Any response to my above queries please???",
+    "2126 2/1/2017 15:58 Kindly advise what sms are not in my phone....",
+    
   ];
 
-  for (const messageData of newMessages) {
+  for (const message of messages) {
+    const [id, date, time, content] = message.split(' ');
     const newMessage = new Message({
-      sender: `Customer ${messageData.userId}`, // Change 'User' to 'Customer'
-      timestamp: messageData.timestamp,
-      content: messageData.body,
+      id,
+      date,
+      time,
+      content,
     });
     await newMessage.save();
   }
